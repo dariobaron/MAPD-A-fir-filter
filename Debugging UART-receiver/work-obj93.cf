@@ -1,0 +1,10 @@
+v 4
+file . "uart_receiver.vhd" "1170df77e4098507a988c5d159fa558b0ea2d9c3" "20210314172650.895":
+  entity uart_receiver at 1( 0) + 0 on 19;
+  architecture str of uart_receiver at 17( 269) + 0 on 20;
+file . "uart_receiver_tb.vhd" "6df6afeb0f5ea558ee7d3e9f66f3de8c9a547582" "20210314172650.854":
+  entity uart_receiver_tb at 1( 0) + 0 on 17;
+  architecture test of uart_receiver_tb at 8( 127) + 0 on 18;
+file . "sampler_generator.vhd" "ecdeebf3ba8f2a36f66ec1f575522ef50144ea13" "20210314165120.335":
+  entity sampler_generator at 1( 0) + 0 on 15;
+  architecture rtl of sampler_generator at 14( 243) + 0 on 16;
