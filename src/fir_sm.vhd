@@ -23,7 +23,7 @@ architecture str of fir_filter is
 	 
 
 	signal data_pipe :	arr8_t := (others => (others => '0'));
-	signal coeff :	arr8_t;
+	signal coeff :	arr8_t := (others => (others => '0'));
 	signal mult : arr16_t := (others => (others => '0'));
 	signal adder : signed(20 downto 0) := (others => '0');
 

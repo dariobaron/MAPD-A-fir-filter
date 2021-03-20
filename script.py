@@ -39,7 +39,7 @@ with open("signal.txt") as f, open("filtered_signal.txt", "w") as out:
         ser.write(chr(double_to_signed(sig,Q=Q)))
 
         d = ser.read()
-        res = signed_to_double(ord(d),Q=Q)# * max(signal)
+        res = signed_to_double(ord(d),Q=Q) * max(signal)
         out.write(str(res) + '\n' )
 
     f.close()
