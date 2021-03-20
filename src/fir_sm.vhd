@@ -35,10 +35,10 @@ begin  -- architecture
       --coeff(3) <= to_signed(3,8);
 
 coeff(0) <= "00000010";
-coeff(1) <= "00001010";
-coeff(2) <= "00010110";
-coeff(3) <= "00010110";
-coeff(4) <= "00001010";
+coeff(1) <= "00001011";
+coeff(2) <= "00011010";
+coeff(3) <= "00011010";
+coeff(4) <= "00001011";
 coeff(5) <= "00000010";
 
   main : process (clock,valid) is
@@ -83,7 +83,7 @@ coeff(5) <= "00000010";
 
 
 		when s4 =>
-			  data_out <=	std_logic_vector(resize(shift_right(adder, 8), 8));--std_logic_vector(adder(14 downto 7));--shift rightresize(adder, 8)
+			  data_out <=	std_logic_vector(resize(shift_right(adder, 7), 8));--std_logic_vector(adder(14 downto 7));--shift rightresize(adder, 8)
     	      data_valid  <= '1';
 			  if valid = '0' then
         	      state <= s0;
