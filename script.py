@@ -37,7 +37,7 @@ with open("signal.txt") as f, open("filtered_signal.txt", "w") as out:
     for sig in signal:
 #    	print("Processing : "+str(100*i//signal.size)+"%", end='\r', flush=True)
         ser.write(chr(double_to_signed(sig,Q=Q)))
-
+        print(sig)
         d = ser.read()
         res = signed_to_double(ord(d),Q=Q) * max(signal)
         out.write(str(res) + '\n' )
