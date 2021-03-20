@@ -35,7 +35,7 @@ with open("signal.txt") as f, open("filtered_signal.txt", "w") as out:
     Q = computeQ(signal,taps)
 
     for i,sig in enumerate(signal):
-    	print("Processing : "+str(100*i//signal.size)+"%", end='\r', flush=True)
+#    	print("Processing : "+str(100*i//signal.size)+"%", end='\r', flush=True)
         ser.write(chr(double_to_signed(sig,Q=Q)))
 
         d = ser.read()
