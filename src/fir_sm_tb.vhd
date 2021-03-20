@@ -42,7 +42,7 @@ begin  -- architecture test
     wait for 1 us;
     wait until rising_edge(clock);
     valid <='1';
-    data <= "01000011";
+    data <= "00110111";
     wait until rising_edge(clock);
     valid <= '0';
     wait for 1 us;
@@ -56,7 +56,21 @@ begin  -- architecture test
 
     wait until rising_edge(clock);
     valid <='1';
-    data <= "00001111";
+    data <= "11111110";
+    wait until rising_edge(clock);
+    valid <='0';
+    wait for 1 us;
+
+    wait until rising_edge(clock);
+    valid <='1';
+    data <= "11110010";
+    wait until rising_edge(clock);
+    valid <='0';
+    wait for 1 us;
+
+    wait until rising_edge(clock);
+    valid <='1';
+    data <= "01011100";
     wait until rising_edge(clock);
     valid <='0';
     wait for 1 us;
@@ -70,21 +84,7 @@ begin  -- architecture test
 
     wait until rising_edge(clock);
     valid <='1';
-    data <= "01010100";
-    wait until rising_edge(clock);
-    valid <='0';
-    wait for 1 us;
-
-    wait until rising_edge(clock);
-    valid <='1';
-    data <= "00000000";
-    wait until rising_edge(clock);
-    valid <='0';
-    wait for 1 us;
-
-    wait until rising_edge(clock);
-    valid <='1';
-    data <= "10101100";
+    data <= "10100100";
     wait until rising_edge(clock);
     valid <='0';
     wait for 1 us;
