@@ -83,7 +83,7 @@ coeff(5) <= "00000010";
 
 
 		when s4 =>
-			  data_out <=	std_logic_vector(adder(20 downto 13));--shift rightresize(adder, 8)
+			  data_out <=	std_logic_vector(adder(14 downto 7));--shift rightresize(adder, 8)
     	      data_valid  <= '1';
 			  if valid = '0' then
         	      state <= s0;
