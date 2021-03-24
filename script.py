@@ -23,7 +23,7 @@ def signed_to_double(a,Q):
 
 
 ser = serial.Serial('/dev/ttyUSB5', baudrate=115200)
-time.sleep(1)
+time.sleep(2)
 
 ####### CHECK
 taps = np.array([0.02856076, 0.14288273, 0.32855651, 0.32855651, 0.14288273, 0.02856076])
