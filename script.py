@@ -43,7 +43,7 @@ with open("signal.txt") as f, open("filtered_signal.txt", "w") as out:
 	
 	if(ser.inWaiting()>0):
 	       	d = ser.read()
-        	res = signed_to_double(ord(d),Q=Q) * max(signal)
+        	res = signed_to_double(ord(d),Q=Q)# * max(signal)
         
 		out.write(str(res) + '\n' )
 		time.sleep(0.01)
