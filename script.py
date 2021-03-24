@@ -46,7 +46,7 @@ with open("signal.txt") as f, open("filtered_signal.txt", "w") as out:
         	res = signed_to_double(ord(d),Q=Q) * max(signal)
         
 		out.write(str(res) + '\n' )
-		time.sleep(0.01)
+		#time.sleep(0.01)
     f.close()
     out.close()
 ser.close() # close port
