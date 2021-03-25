@@ -28,8 +28,8 @@ time.sleep(5)
 ####### CHECK
 taps = np.array([0.02856076, 0.14288273, 0.32855651, 0.32855651, 0.14288273, 0.02856076])
 
-
-
+countout=0
+count=0
 with open("signal.txt") as f, open("filtered_signal.txt", "w") as out:
     signal = np.loadtxt(f)
     Q = computeQ(signal,taps)
@@ -39,15 +39,15 @@ with open("signal.txt") as f, open("filtered_signal.txt", "w") as out:
       
 	ser.write(chr(double_to_signed(sig,Q=Q)))
         print(sig)
-
+	count+=1
 	
-	if(ser.inWaiting()>0):
-	       	d = ser.read()
-        	res = signed_to_double(ord(d),Q=Q) * max(signal)
-        
-		out.write(str(res) + '\n' )
-		time.sleep(0.1)
+	#if(ser.in_waiting>0):
+     	d = ser.read()
+       	res = signed_to_double(ord(d),Q=Q) * max(signal)
+       	countout+=1
+	out.write(str(res) + '\n' )
+	time.sleep(0.1)
     f.close()
     out.close()
 ser.close() # close port
-
+print(count,countout)
