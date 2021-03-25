@@ -30,6 +30,9 @@ def signed_to_double(a,Q):
 ser = serial.Serial('/dev/ttyUSB5', baudrate=115200)
 time.sleep(4)
 
+ser.reset_input_buffer()
+ser.reset_output_buffer()
+
 ####### CHECK
 taps = np.array([0.02856076, 0.14288273, 0.32855651, 0.32855651, 0.14288273, 0.02856076])
 
@@ -45,16 +48,18 @@ with open("signal.txt") as f, open("filtered_signal2.txt","w") as out:
         
 	count+=1
 	print(count)
-	time.sleep(0.3)
-   
-	if(ser.in_waiting>0):	
+	time.sleep(0.8)
+    
+	if(ser.in_waiting>0):
+	#print(ser.in_waiting)	
 		d= ser.read(1)
 		res=signed_to_double(ord(d),Q=Q)*max(signal)
 		countout+=1
-		
+	
 		print(countout)
 		out.write(str(res)+"\n")
-		time.sleep(0.1)
+	
+		time.sleep(0.3)
 		
     time.sleep(5)
     f.close()
