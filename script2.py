@@ -52,14 +52,14 @@ with open("signal.txt") as f, open("filtered_signal2.txt","w") as out:
     
 	if(ser.in_waiting>0):
 	#print(ser.in_waiting)	
-		d= ser.read(1)
+		d= ser.read(ser.in_waiting)
 		res=signed_to_double(ord(d),Q=Q)*max(signal)
 		countout+=1
 	
 		print(countout)
 		out.write(str(res)+"\n")
 	
-		time.sleep(0.3)
+		time.sleep(0.31)
 		
     time.sleep(5)
     f.close()
