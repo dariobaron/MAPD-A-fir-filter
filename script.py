@@ -38,15 +38,26 @@ with open("signal.txt") as f, open("filtered_signal.txt", "w") as out:
 	#print("Processing : "+str(100*i//signal.size)+"%", end='\r', flush=True)
       
 	ser.write(chr(double_to_signed(sig,Q=Q)))
-        print(sig)
+        #print(sig)
 	count+=1
-	
-	#if(ser.in_waiting>0):
-     	d = ser.read()
-       	res = signed_to_double(ord(d),Q=Q) * max(signal)
-       	countout+=1
-	out.write(str(res) + '\n' )
 	time.sleep(0.1)
+   
+    	if(ser.in_waiting>0):	
+    	#while True:
+    		d= ser.read(1)
+		res=signed_to_double(ord(d),Q=Q)*max(signal)
+		countout+=1
+		print(countout)
+		out.write(str(res)+'\n')
+        	
+    
+	#if(ser.in_waiting>0):
+	#	d = ser.read()
+	#	res = signed_to_double(ord(d),Q=Q) * max(signal)
+	#	countout+=1
+	#	out.write(str(res) + '\n' )
+	#	time.sleep(0.1)
+    
     f.close()
     out.close()
 ser.close() # close port
