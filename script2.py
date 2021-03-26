@@ -15,7 +15,7 @@ time.sleep(2)
 
 countout=0
 count=0
-with open("signal2.txt") as f, open("filtered_signal2.txt","w") as out:
+with open("signal15.txt") as f, open("filtered_signal15.txt","w") as out:
     signal = np.loadtxt(f,dtype=int)
 
     for sig in signal:
