@@ -30,7 +30,7 @@ architecture str of top is
       received_data : out std_logic_vector(7 downto 0));
   end component uart_receiver;
 
-  component fir_filter is
+  component fir_filter2 is
     port (
       clock         : in std_logic;
       valid         : in std_logic;
@@ -57,7 +57,7 @@ begin  -- architecture str
       valid         => valid,
       received_data => received_data);
 
-  fir_filter_1 : fir_filter
+  fir_filter_1 : fir_filter2
 
     port map(
       clock         => CLK100MHZ,
