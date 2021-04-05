@@ -29,11 +29,6 @@ architecture str of fir_filter is
 
 begin  -- architecture
 
-      --coeff(0) <= to_signed(1,8);  --initialize coefficients
-      --coeff(1) <= to_signed(3,8);
-      --coeff(2) <= to_signed(2,8);
-      --coeff(3) <= to_signed(3,8);
-
 coeff(0) <= "00000010";
 coeff(1) <= "00001011";
 coeff(2) <= "00011010";
@@ -54,40 +49,40 @@ coeff(5) <= "00000010";
           end if;
 
         when s1 =>
-        	data_valid  <= '0';
-	  		data_pipe  <= signed(data)&data_pipe(0 to data_pipe'length-2);
+            data_valid  <= '0';
+            data_pipe  <= signed(data)&data_pipe(0 to data_pipe'length-2);
 
-        	if valid = '0' then
-        		state <= s2;
-        	end if;
-	  
+            if valid = '0' then
+                state <= s2;
+            end if;
+            
         when s2 =>
-  			  mult(0) <= data_pipe(0)*coeff(0);
-			  mult(1) <= data_pipe(1)*coeff(1);
-			  mult(2) <= data_pipe(2)*coeff(2);
-			  mult(3) <= data_pipe(3)*coeff(3);
-			  mult(4) <= data_pipe(4)*coeff(4);
-			  mult(5) <= data_pipe(5)*coeff(5);
+            mult(0) <= data_pipe(0)*coeff(0);
+            mult(1) <= data_pipe(1)*coeff(1);
+            mult(2) <= data_pipe(2)*coeff(2);
+            mult(3) <= data_pipe(3)*coeff(3);
+            mult(4) <= data_pipe(4)*coeff(4);
+            mult(5) <= data_pipe(5)*coeff(5);
 
-			  if valid = '0' then
-            	  state <= s3;
-        	  end if;
+            if valid = '0' then
+                state <= s3;
+            end if;
 
-		when s3 =>
-		  adder <= 	(resize(mult(0),21) + resize(mult(1),21) + resize(mult(2),21) +
-					resize(mult(3),21) + resize(mult(4),21) + resize(mult(5),21));
+        when s3 =>
+            adder <= (resize(mult(0),21) + resize(mult(1),21) + resize(mult(2),21) +
+                    resize(mult(3),21) + resize(mult(4),21) + resize(mult(5),21));
 
-		  if valid = '0' then
-              state <= s4;
-          end if;
+            if valid = '0' then
+                state <= s4;
+            end if;
 
 
-		when s4 =>
-			  data_out <=	std_logic_vector(resize(shift_right(adder, 7), 8));--std_logic_vector(adder(14 downto 7));--shift rightresize(adder, 8)
-    	      data_valid  <= '1';
-			  if valid = '0' then
-        	      state <= s0;
-         	  end if;
+        when s4 =>
+            data_out <= std_logic_vector(resize(shift_right(adder, 7), 8));
+            data_valid  <= '1';
+            if valid = '0' then
+                state <= s0;
+            end if;
 
         when others => null;
       end case;
