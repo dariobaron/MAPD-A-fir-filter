@@ -8,7 +8,7 @@ for i in range(16):
 	ser = serial.Serial('/dev/ttyUSB5', baudrate=115200)
 	time.sleep(2)
 
-	with open("signal"+str(i)".txt") as f, open("filtered_signal"+str(i)".txt","w") as out:
+	with open("signal"+str(i)+".txt") as f, open("filtered_signal"+str(i)+".txt","w") as out:
 	    signal = np.loadtxt(f,dtype=int)
 
 	    for j,sig in enumerate(signal):
