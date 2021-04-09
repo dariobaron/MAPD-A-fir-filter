@@ -18,8 +18,8 @@ architecture str of fir_filter is
 	type state_t is (s0,s1,s2,s3,s4);
 	signal state :	state_t := s0;
 
-	type arr8_t is array (0 to 5) of signed(7 downto 0);
-	type arr16_t is array (0 to 5) of signed(15 downto 0);
+	type arr8_t is array (0 to 8) of signed(7 downto 0);
+	type arr16_t is array (0 to 8) of signed(15 downto 0);
 	 
 
 	signal data_pipe :	arr8_t := (others => (others => '0'));
@@ -29,12 +29,15 @@ architecture str of fir_filter is
 
 begin  -- architecture
 
-coeff(0) <= "00001011";
-coeff(1) <= "00110111";
-coeff(2) <= "01111111";
-coeff(3) <= "01111111";
-coeff(4) <= "00110111";
-coeff(5) <= "00001011";
+coeff(0) <= "00001010";
+coeff(1) <= "00011011";
+coeff(2) <= "01000100";
+coeff(3) <= "01101110";
+coeff(4) <= "01111111";
+coeff(5) <= "01101110";
+coeff(6) <= "01000100";
+coeff(7) <= "00011011";
+coeff(8) <= "00001010";
 
   main : process (clock,valid) is
   begin  -- process main
@@ -63,14 +66,18 @@ coeff(5) <= "00001011";
             mult(3) <= data_pipe(3)*coeff(3);
             mult(4) <= data_pipe(4)*coeff(4);
             mult(5) <= data_pipe(5)*coeff(5);
+            mult(6) <= data_pipe(6)*coeff(6);
+            mult(7) <= data_pipe(7)*coeff(7);
+            mult(8) <= data_pipe(8)*coeff(8);
 
             if valid = '0' then
                 state <= s3;
             end if;
 
         when s3 =>
-            adder <= (resize(mult(0),21) + resize(mult(1),21) + resize(mult(2),21) +
-                    resize(mult(3),21) + resize(mult(4),21) + resize(mult(5),21));
+            adder <= (resize(mult(0),24) + resize(mult(1),24) + resize(mult(2),24) +
+                    resize(mult(3),24) + resize(mult(4),24) + resize(mult(5),24) +
+                    resize(mult(6),24) + resize(mult(7),24) + resize(mult(8),24));
 
             if valid = '0' then
                 state <= s4;
@@ -78,7 +85,7 @@ coeff(5) <= "00001011";
 
 
         when s4 =>
-            data_out <= std_logic_vector(adder(16 downto 9));
+            data_out <= std_logic_vector(adder(17 downto 10));
             data_valid  <= '1';
             if valid = '0' then
                 state <= s0;
