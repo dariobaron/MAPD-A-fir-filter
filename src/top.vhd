@@ -57,7 +57,7 @@ begin  -- architecture str
       valid         => valid,
       received_data => received_data);
 
-  fir_filter_1 : fir_filter_new
+  fir_filter_1 : fir_filter
 
     port map(
       clock         => CLK100MHZ,
