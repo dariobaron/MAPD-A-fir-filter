@@ -36,7 +36,7 @@ with open("signal.txt") as f, open("filtered_signal.txt", "w") as out:
             res = signed_to_double(ord(d),Q=Q) * max(signal)
             out.write(str(res) + '\n' )
 
-print "Done."
+print "\nDone."
 
 #    f.close()
 #    out.close()
