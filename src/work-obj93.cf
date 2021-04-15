@@ -1,41 +1,50 @@
 v 4
-file . "all_tb.vhd" "e7ec0f8b9845c9871702bab4687eb190cdb811f0" "20210405152043.690":
+file . "all_tb.vhd" "e7ec0f8b9845c9871702bab4687eb190cdb811f0" "20210415220444.898":
   entity all_tb at 1( 0) + 0 on 4;
   architecture test_all of all_tb at 10( 109) + 0 on 4;
-file . "uart_transmitter.vhd" "d6c77f0b9b66269b4f57286a8bc361ea5ca20bf4" "20210405152043.692":
-  entity uart_transmitter at 1( 0) + 0 on 4;
-  architecture rtl of uart_transmitter at 18( 305) + 0 on 4;
-file . "uart_transmitter_tb.vhd" "e64df1cb5a0b54bd9c7cd3b97fd5d4c48e8b8848" "20210405152043.692":
+file . "baudrate_generator.vhd" "684da8731851bab997be13994498b5ef97bc09e6" "20210415220454.085":
+  entity bauderate_generator at 1( 0) + 0 on 27;
+  architecture std of bauderate_generator at 15( 224) + 0 on 28;
+file . "delay_line.vhd" "a70bdecb82d4dc18dfc96962f7e4131d06f5ff1a" "20210415220453.836":
+  entity delay_line at 1( 0) + 0 on 17;
+  architecture std of delay_line at 17( 239) + 0 on 18;
+file . "fir_sm_tb.vhd" "c8b1384b4353a23eaf1c787e91accca3230e7b0c" "20210415220444.900":
+  entity fir_filter_tb at 1( 0) + 0 on 4;
+  architecture test of fir_filter_tb at 10( 123) + 0 on 4;
+file . "fir_sm.vhd" "f31f4edb37ee6c916a66c0ef56e3b66b6b66434e" "20210415220453.934":
+  entity fir_filter at 1( 0) + 0 on 25;
+  architecture str of fir_filter at 16( 286) + 0 on 26;
+file . "one_second_generator.vhd" "2c194a4fa5aa0fe6b91c87e608c7a0adb521a05d" "20210415220444.901":
+  entity one_second_generator at 1( 0) + 0 on 4;
+  architecture rtl of one_second_generator at 15( 219) + 0 on 4;
+file . "pulse_control.vhd" "7335e64bd24fc5551591201c90a1fe5161d60247" "20210415220453.758":
+  entity pulse_control at 1( 0) + 0 on 13;
+  architecture std of pulse_control at 19( 366) + 0 on 14;
+file . "pulse_generator.vhd" "3949e3878929c9808ed26839c1dbb7c0609ca4b8" "20210415220453.787":
+  entity pulse_generator at 1( 0) + 0 on 15;
+  architecture std of pulse_generator at 17( 247) + 0 on 16;
+file . "rc_state_machine.vhd" "2dc385635b2265d2afbc2352ea2f3bee3533651f" "20210415220453.883":
+  entity rc_state_machine at 12( 418) + 0 on 21;
+  architecture std of rc_state_machine at 30( 777) + 0 on 22;
+file . "sampler_generator.vhd" "d646559b979e6e3cc3c813fd5d12230ff9ba8633" "20210415220453.861":
+  entity sampler_generator at 1( 0) + 0 on 19;
+  architecture std of sampler_generator at 16( 252) + 0 on 20;
+file . "top.vhd" "834bee6a8707041eb5c65f022d4688483fa38676" "20210415220453.726":
+  entity top at 1( 0) + 0 on 11;
+  architecture str of top at 17( 218) + 0 on 12;
+file . "tx_state_machine.vhd" "1ed0c7af56a3b60c8164a15aca78b97603d036fa" "20210415220454.133":
+  entity tx_state_machine at 12( 418) + 0 on 29;
+  architecture std of tx_state_machine at 32( 795) + 0 on 30;
+file . "uart_receiver_tb.vhd" "e5fbcdb925fb02de373a5efa79b38b075d0cd13f" "20210415220444.905":
+  entity uart_receiver_tb at 1( 0) + 0 on 4;
+  architecture test of uart_receiver_tb at 8( 127) + 0 on 4;
+file . "UART_receiver.vhd" "1e294948aada591b83fa0afa13fd7166c836de32" "20210415220453.914":
+  entity uart_receiver at 1( 0) + 0 on 23;
+  architecture std of uart_receiver at 20( 331) + 0 on 24;
+file . "uart_transmitter_tb.vhd" "e64df1cb5a0b54bd9c7cd3b97fd5d4c48e8b8848" "20210415220444.905":
   entity uart_transmitter_tb at 22( 900) + 0 on 4;
   architecture test of uart_transmitter_tb at 33( 1170) + 0 on 4;
   configuration uart_transmitter_tb_test_cfg at 83( 2429) + 0 on 4;
-file . "uart_receiver.vhd" "1170df77e4098507a988c5d159fa558b0ea2d9c3" "20210405152043.692":
-  entity uart_receiver at 1( 0) + 0 on 4;
-  architecture str of uart_receiver at 17( 269) + 0 on 4;
-file . "uart_receiver_tb.vhd" "e5fbcdb925fb02de373a5efa79b38b075d0cd13f" "20210405152043.691":
-  entity uart_receiver_tb at 1( 0) + 0 on 4;
-  architecture test of uart_receiver_tb at 8( 127) + 0 on 4;
-file . "top.vhd" "eeb04b4d83f4e1943ead81aa956593354eee8171" "20210405152043.691":
-  entity top at 1( 0) + 0 on 4;
-  architecture str of top at 17( 218) + 0 on 4;
-file . "sampler_generator.vhd" "ecdeebf3ba8f2a36f66ec1f575522ef50144ea13" "20210405152043.691":
-  entity sampler_generator at 1( 0) + 0 on 4;
-  architecture rtl of sampler_generator at 14( 243) + 0 on 4;
-file . "one_second_generator.vhd" "2c194a4fa5aa0fe6b91c87e608c7a0adb521a05d" "20210405152043.691":
-  entity one_second_generator at 1( 0) + 0 on 4;
-  architecture rtl of one_second_generator at 15( 219) + 0 on 4;
-file . "fir_sm.vhd" "90d84f44d5685a0793d7a367ac4bc1822084cc31" "20210405152045.109":
-  entity fir_filter at 1( 0) + 0 on 13;
-  architecture str of fir_filter at 16( 288) + 0 on 14;
-file . "fir_sm_tb.vhd" "c8b1384b4353a23eaf1c787e91accca3230e7b0c" "20210405152045.032":
-  entity fir_filter_tb at 1( 0) + 0 on 11;
-  architecture test of fir_filter_tb at 10( 123) + 0 on 12;
-file . "baudrate_generator.vhd" "61aab293cae2a60a569e73686ea92f4327ee0b95" "20210405152043.690":
-  entity baudrate_generator at 1( 0) + 0 on 4;
-  architecture rtl of baudrate_generator at 15( 213) + 0 on 4;
-file . "fir_sm2.vhd" "a821c14936fe21c9b220a2eed18b97460400837f" "20210405152043.690":
-  entity fir_filter2 at 1( 0) + 0 on 4;
-  architecture str of fir_filter2 at 16( 290) + 0 on 4;
-file . "fir_sm_new.vhd" "320525459de3e3318d8b4c3f85af37eca2263ceb" "20210405152043.690":
-  entity fir_filter_new at 1( 0) + 0 on 4;
-  architecture str of fir_filter_new at 18( 403) + 0 on 4;
+file . "UART_transmitter.vhd" "226311dedc6d86ecd024fe6e25d8f44eec3af5e8" "20210415220454.165":
+  entity uart_transmitter at 2( 2) + 0 on 31;
+  architecture std of uart_transmitter at 24( 395) + 0 on 32;
