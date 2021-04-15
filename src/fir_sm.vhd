@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 
 entity fir_filter is
 	port(
-		clock:	in std_logic;
+		clk:	in std_logic;
 		valid:	in std_logic;
 		data :	in std_logic_vector(7 downto 0);
 
@@ -39,9 +39,9 @@ coeff(6) <= "01000100";
 coeff(7) <= "00011011";
 coeff(8) <= "00001010";
 
-  main : process (clock,valid) is
+  main : process (clk,valid) is
   begin  -- process main
-    if rising_edge(clock) then -- rising clock edge
+    if rising_edge(clk) then -- rising clock edge
       
       case state is
 
