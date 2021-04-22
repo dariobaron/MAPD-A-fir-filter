@@ -29,15 +29,15 @@ architecture str of fir_filter is
 
 begin  -- architecture
 
-coeff(0) <= "00001010";
-coeff(1) <= "00011011";
-coeff(2) <= "01000100";
-coeff(3) <= "01101110";
+coeff(0) <= "00000101";
+coeff(1) <= "00010011";
+coeff(2) <= "00111011";
+coeff(3) <= "01101010";
 coeff(4) <= "01111111";
-coeff(5) <= "01101110";
-coeff(6) <= "01000100";
-coeff(7) <= "00011011";
-coeff(8) <= "00001010";
+coeff(5) <= "01101010";
+coeff(6) <= "00111011";
+coeff(7) <= "00010011";
+coeff(8) <= "00000101";
 
   main : process (clk,valid) is
   begin  -- process main
@@ -85,7 +85,7 @@ coeff(8) <= "00001010";
 
 
         when s4 =>
-            data_out <= std_logic_vector(adder(17 downto 10));
+            data_out <= std_logic_vector(adder(16 downto 9));
             data_valid  <= '1';
             if valid = '0' then
                 state <= s0;
